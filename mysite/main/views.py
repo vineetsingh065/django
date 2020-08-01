@@ -13,3 +13,7 @@ def home(request):
 
 def about(request):
     return render(request, 'front/about.html', {'site': render_header_footer()})
+
+
+def panel(request):
+    return render(request, 'back/home.html')
