@@ -15,3 +15,9 @@ def news_detail(request, word):
 def news_list(request):
     news = News.objects.all()
     return render(request, 'back/news_list.html', {'news': news})
+
+
+def add_news(request):
+    # news = News.objects.all()
+    print("okokokok")
+    return render(request, 'back/news_add.html')
