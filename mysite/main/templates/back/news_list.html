@@ -42,10 +42,11 @@
                                         <tr>
                                             <td class="text-center">{{ news_details.pk }}</td>
                                             <td class="text-center"><img src="{% static 'back/img/placeholders/avatars/avatar15.jpg' %}" alt="avatar" class="img-circle"></td>
-                                            <td>{{ news_details.writer }}</td>
+                                            <td>{{ news_details.name }}</td>
                                             <td>{{ news_details.date }}</td>
-                                            <td>Sport</td>
+                                            <td>{{ news_details.catname }}</td>
                                             <td>{{ news_details.writer }}</td>
+                                            <td>{{ news_details.show }}</td>
                                             <td>100</td>
                                             <td class="text-center">
                                                 <div class="btn-group">

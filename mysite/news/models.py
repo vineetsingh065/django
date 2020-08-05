@@ -13,6 +13,9 @@ class News(models.Model):
     date = models.DateField(default=timezone.now)
     pic = models.TextField()
     writer = models.CharField(max_length=50)
+    catname = models.CharField(max_length=50, default="-")
+    catid = models.IntegerField(default=0)
+    show = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name
