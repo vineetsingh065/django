@@ -11,7 +11,8 @@ class News(models.Model):
     headline = models.TextField()  # short_text in place of title in course
     body_text = models.TextField()
     date = models.DateField(default=timezone.now)
-    pic = models.TextField()
+    picname = models.TextField()
+    picurl = models.TextField(default="-")
     writer = models.CharField(max_length=50)
     catname = models.CharField(max_length=50, default="-")
     catid = models.IntegerField(default=0)

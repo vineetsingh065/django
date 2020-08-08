@@ -7,13 +7,13 @@
                         <div class="content-header">
                             <div class="header-section">
                                 <h1>
-                                    <i class="fa fa-table"></i>Add News<br>
+                                    <i class="fa fa-table"></i>Add Category<br>
                                 </h1>
                             </div>
                         </div>
                         <ul class="breadcrumb breadcrumb-top">
                             <li>Add</li>
-                            <li><a href="/panel/add-news/">News</a></li>
+                            <li><a href="/panel/add/category/">Category</a></li>
                         </ul>
                         <!-- END Datatables Header -->
 
@@ -26,44 +26,18 @@
                                         <div class="block-options pull-right">
                                             <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default toggle-bordered enable-tooltip" data-toggle="button" title="Toggles .form-bordered class">No Borders</a>
                                         </div>
-                                        <h2><strong>Add</strong>News</h2>
+                                        <h2><strong>Add</strong>Category</h2>
                                     </div>
                                     <!-- END Form Elements Title -->
 
                                     <!-- Basic Form Elements Content -->
-                                    <form action="{%url 'add_news' %}" method="post" class="form-horizontal form-bordered" enctype="multipart/form-data">
+                                    <form action="{%url 'add_cat' %}" method="post" class="form-horizontal form-bordered" enctype="multipart/form-data">
                                         {% csrf_token %}
                                         <div class="form-group">
                                             <div class="col-md-6">
-                                                <input type="text" id="newstitle" name="newstitle" class="form-control" placeholder="News Title" >
+                                                <input type="text" id="cattitle" name="catname" class="form-control" placeholder="News Title" >
                                             </div>
-                                            <div class="col-md-6">
-                                                <select id="example-chosen" id="newscat" name="newscat" class="select-chosen" data-placeholder="Category..." style="width: 250px;">
-                                                        <option></option><!-- Required for data-placeholder attribute to work with Chosen plugin -->
-                                                        {% for category in cat %}
-                                                        <option value="{{ category }}">{{ category }}</option>
-                                                        {% endfor %}
-
-                                                    </select>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="col-md-12">
-                                                <textarea type="text" id="newstxtshort" name="newstxtshort" rows="5" class="form-control" placeholder="Short text"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="col-md-12">
-                                                <textarea type="text" id="newstxt" name="newstxt" rows="5" class="form-control" placeholder="Body text"></textarea>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <div class="col-md-12">
-                                                <input type="file" id="file" name="myfile" rows="5" class="form-control" placeholder="Body text">
-                                            </div>
-                                        </div>
+                                            <br><br>
 
                                         <div class="form-group">
                                             <div class="col-md-12">
