@@ -4,6 +4,7 @@ from .models import News
 from main.models import Main
 from cat.models import Cat
 from django.core.files.storage import FileSystemStorage
+from subcat.models import SubCat
 
 
 # Create your views here.
@@ -21,11 +22,13 @@ def news_list(request):
 
 def add_news(request):
     cat = Cat.objects.all()
+    subcat = SubCat.objects.all()
     if request.method == 'POST':
         newstitle = request.POST.get('newstitle')
         category = request.POST.get('newscat')
         shorttext = request.POST.get('newstxtshort')
         bodytxt = request.POST.get('newstxt')
+        newsid = request.POST.get('newscat')
 
         if newstitle == "" or shorttext == "" or bodytxt == "" or category == "":
             error = "All fields required"
@@ -41,9 +44,11 @@ def add_news(request):
             if str(myfile.content_type).startswith('image'):
 
                 if myfile.size < 5000000:
+
+                    newsname = SubCat.objects.get(pk=newsid).name
                     b = News(name=newstitle, headline=shorttext, body_text=bodytxt, picname=filename, picurl=media_url,
-                             writer='vineet', catname=category,
-                             catid=0, show=0)
+                             writer='vineet', catname=newsname,
+                             catid=newsid, show=0)
                     b.save()
                     return redirect('news_list')
                 else:
@@ -60,7 +65,7 @@ def add_news(request):
         except:
             error = "Select image to upload"
             return render(request, 'back/error.html', {'error': error})
-    return render(request, 'back/news_add.html', {'cat': cat})
+    return render(request, 'back/news_add.html', {'subcat': subcat})
 
 
 def news_delete(request, pk):
@@ -73,3 +78,8 @@ def news_delete(request, pk):
         error = "failed to delete news"
         return render(request, 'back/error.html', {'error': error})
     return redirect('news_list')
+
+
+def news_edit(request, pk):
+    news = News.objects.all()
+    return render(request, 'back/news_edit.html', {'pk': pk})
