@@ -8,7 +8,7 @@ from cat.models import Cat
 # Create your views here.
 
 def home(request):
-    news = News.objects.all()
+    news = News.objects.all().order_by('-pk')
     cat = Cat.objects.all()
     return render(request, 'front/home.html', {'site': render_header_footer(), 'news': news, 'cat': cat})
 

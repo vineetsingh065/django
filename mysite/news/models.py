@@ -7,7 +7,7 @@ from django.utils import timezone
 
 class News(models.Model):
 
-    name = models.CharField(max_length=50)
+    name = models.CharField(max_length=500)
     headline = models.TextField()  # short_text in place of title in course
     body_text = models.TextField()
     date = models.DateField(default=timezone.now)
@@ -16,6 +16,7 @@ class News(models.Model):
     writer = models.CharField(max_length=50)
     catname = models.CharField(max_length=50, default="-")
     catid = models.IntegerField(default=0)
+    ocatid = models.IntegerField(default=0)
     show = models.IntegerField(default=0)
 
     def __str__(self):
