@@ -3,6 +3,7 @@ from .models import Main
 from .query_set.basic_render_query import render_header_footer
 from news.models import News
 from cat.models import Cat
+from subcat.models import SubCat
 
 
 # Create your views here.
@@ -10,7 +11,8 @@ from cat.models import Cat
 def home(request):
     news = News.objects.all().order_by('-pk')
     cat = Cat.objects.all()
-    return render(request, 'front/home.html', {'site': render_header_footer(), 'news': news, 'cat': cat})
+    subcat = SubCat.objects.all()
+    return render(request, 'front/home.html', {'site': render_header_footer(), 'news': news, 'cat': cat, 'subcat': subcat})
 
 
 def about(request):
