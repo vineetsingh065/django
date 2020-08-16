@@ -12,7 +12,10 @@ from subcat.models import SubCat
 def news_detail(request, word):
     site = Main.objects.get(pk=2)
     news = News.objects.filter(name=word)
-    return render(request, 'front/news_detail.html', {'news': news})
+    cat = Cat.objects.all()
+    subcat = SubCat.objects.all()
+    lastnews = News.objects.all().order_by('-pk')[:3]
+    return render(request, 'front/news_detail.html', {'news': news, 'cat': cat, 'subcat': subcat, 'lastnews': lastnews})
 
 
 def news_list(request):

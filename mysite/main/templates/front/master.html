@@ -142,19 +142,19 @@
 												<div class="col-3">
 													<!-- Item post -->
 													<div>
-														<a href="#" class="wrap-pic-w hov1 trans-03">
+														<a href="{% url 'news_detail' word=n.name %}" class="wrap-pic-w hov1 trans-03">
 															<img src="{{ n.picurl }}" alt="IMG">
 														</a>
 
 														<div class="p-t-10">
 															<h5 class="p-b-5">
-																<a href="#" class="f1-s-5 cl3 hov-cl10 trans-03">
+																<a href="{% url 'news_detail' word=n.name %}" class="f1-s-5 cl3 hov-cl10 trans-03">
 																	{{ n.name }}
 																</a>
 															</h5>
 
 															<span class="cl8">
-																<a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
+																<a href="{% url 'news_detail' word=n.name %}" class="f1-s-6 cl8 hov-cl10 trans-03">
 																	{{ n.catname }}
 																</a>
 
@@ -183,13 +183,13 @@
 												<div class="col-3">
 													<!-- Item post -->
 													<div>
-														<a href="blog-detail-01.html" class="wrap-pic-w hov1 trans-03">
+														<a href="{% url 'news_detail' word=subcatnews.name %}" class="wrap-pic-w hov1 trans-03">
 															<img src="{{ subcatnews.picurl }}" alt="IMG">
 														</a>
 
 														<div class="p-t-10">
 															<h5 class="p-b-5">
-																<a href="blog-detail-01.html" class="f1-s-5 cl3 hov-cl10 trans-03">
+																<a href="{% url 'news_detail' word=subcatnews.name %}" class="f1-s-5 cl3 hov-cl10 trans-03">
 																	{{ subcatnews.name }}
 																</a>
 															</h5>
