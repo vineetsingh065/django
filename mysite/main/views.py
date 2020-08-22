@@ -46,3 +46,8 @@ def my_logout(request):
 
     logout(request)
     return redirect('my_login')
+
+
+def site_settings(request):
+
+    return render(request, 'back/settings.html')
