@@ -27,9 +27,6 @@
                                 <div class="block">
                                     <!-- Basic Form Elements Title -->
                                     <div class="block-title">
-                                        <div class="block-options pull-right">
-                                            <a href="javascript:void(0)" class="btn btn-alt btn-sm btn-default toggle-bordered enable-tooltip" data-toggle="button" title="Toggles .form-bordered class">No Borders</a>
-                                        </div>
                                         <h2><strong>Edit</strong> Settings</h2>
                                     </div>
                                     <!-- END Form Elements Title -->
@@ -39,36 +36,36 @@
                                         {% csrf_token %}
                                         <div class="form-group">
                                             <div class="col-md-6">
-                                                <input type="text" id="name" name="name" class="form-control" placeholder="Site Name" >
+                                                <input type="text" id="name" name="name" value="{{ site.name }}" class="form-control" placeholder="Site Name" >
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="col-md-6">
-                                                <input type="text" id="fb" name="fb" class="form-control" placeholder="Contact No" >
+                                                <input type="text" id="contact" name="contact" value="{{ site.contact }}" class="form-control" placeholder="Contact No" >
                                             </div>
                                         </div>
 
                                         <div class="form-group">
                                             <div class="col-md-6">
-                                                <input type="text" id="fb" name="fb" class="form-control" placeholder="Facebook" >
+                                                <input type="text" id="fb" name="fb" value="{{ site.fb }}" class="form-control" placeholder="Facebook" >
 
                                             </div>
                                         </div>
                                          <div class="form-group">
                                             <div class="col-md-6">
-                                                <input type="text" id="tw" name="tw" class="form-control" placeholder="Twitter" >
+                                                <input type="text" id="tw" name="tw" value="{{ site.tw }}" class="form-control" placeholder="Twitter" >
 
                                             </div>
                                         </div>
                                          <div class="form-group">
                                             <div class="col-md-6">
-                                                <input type="text" id="yt" name="yt" class="form-control" placeholder="YouTube" >
+                                                <input type="text" id="yt" name="yt" value="{{ site.yt }}" class="form-control" placeholder="YouTube" >
 
                                             </div>
                                         </div>
                                         <div class="form-group">
                                     <div class="col-md-12">
-                                        <textarea type="text" id="about" name="about" rows="5" class="form-control" placeholder="About US"></textarea>
+                                        <textarea type="text" id="about" name="about" rows="5" class="form-control" placeholder="About US">{{ site.about }}</textarea>
                                     </div>
 
                                 </div>
@@ -79,6 +76,13 @@
                                             console.error( error );
                                         } );
                                 </script>
+
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                <input type="file" id="file" name="myfile" rows="5" class="form-control" placeholder="Body text">
+                                                <img style="display: inline-block; width: 400px" src="{{ news.picurl }}">
+                                            </div>
+                                        </div>
 
                                         <div class="form-group">
                                             <div class="col-md-12">

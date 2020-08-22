@@ -11,8 +11,9 @@ class Main(models.Model):
     tw = models.CharField(default='-', max_length=50)
     yt = models.CharField(default='-', max_length=50)
     contact = models.CharField(default='0', max_length=12)
-
     site_name = models.CharField(default='-', max_length=50)
+    logo_name = models.TextField(default='-')
+    logo_url = models.TextField(default="-")
 
     def __str__(self):
         return self.site_name + " | " + str(self.pk)
