@@ -10,6 +10,10 @@ from subcat.models import SubCat
 # Create your views here.
 
 def news_detail(request, word):
+    # login check
+    if not request.user.is_authenticated:
+        return redirect('my_login')
+
     site = Main.objects.get(pk=2)
     news = News.objects.filter(name=word)
     cat = Cat.objects.all()
@@ -19,11 +23,19 @@ def news_detail(request, word):
 
 
 def news_list(request):
+    # login check
+    if not request.user.is_authenticated:
+        return redirect('my_login')
+
     news = News.objects.all()
     return render(request, 'back/news_list.html', {'news': news})
 
 
 def add_news(request):
+    # login check
+    if not request.user.is_authenticated:
+        return redirect('my_login')
+
     cat = Cat.objects.all()
     subcat = SubCat.objects.all()
     if request.method == 'POST':
@@ -78,6 +90,10 @@ def add_news(request):
 
 
 def news_delete(request, pk):
+    # login check
+    if not request.user.is_authenticated:
+        return redirect('my_login')
+
 
     try:
 
@@ -107,6 +123,10 @@ def news_delete(request, pk):
 
 
 def news_edit(request, pk):
+    # login check
+    if not request.user.is_authenticated:
+        return redirect('my_login')
+
     if len(News.objects.filter(pk=pk)) == 0:
         error = "News Not found"
         return render(request, 'back/error.html', {'error': error})

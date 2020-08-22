@@ -5,11 +5,18 @@ from .models import Cat
 # Create your views here.
 
 def cat_list(request):
+    # login check
+    if not request.user.is_authenticated:
+        return redirect('my_login')
     cat = Cat.objects.all()
     return render(request, 'back/cat_list.html', {'cat': cat})
 
 
 def add_cat(request):
+    # login check
+    if not request.user.is_authenticated:
+        return redirect('my_login')
+
     if request.method == "POST":
         category_name = request.POST.get('catname')
         if category_name == "":
