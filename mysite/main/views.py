@@ -8,6 +8,12 @@ from django.contrib.auth import authenticate, login, logout
 from django.core.files.storage import FileSystemStorage
 
 
+from django.core.mail import send_mail, BadHeaderError
+from django.http import HttpResponse, HttpResponseRedirect
+from django.shortcuts import render, redirect
+from .forms import ContactForm
+
+
 # Create your views here.
 
 def home(request):
@@ -19,7 +25,10 @@ def home(request):
 
 
 def about(request):
-    return render(request, 'front/about.html', {'site': render_header_footer()})
+    news = News.objects.all().order_by('-pk')
+    cat = Cat.objects.all()
+    subcat = SubCat.objects.all()
+    return render(request, 'front/about.html', {'site': render_header_footer(), 'news': news, 'cat': cat, 'subcat': subcat})
 
 
 def panel(request):
@@ -101,3 +110,13 @@ def site_settings(request):
     site = Main.objects.get(pk=2)
 
     return render(request, 'back/settings.html', {'site': site})
+
+
+def contact(request):
+    news = News.objects.all().order_by('-pk')
+    cat = Cat.objects.all()
+    subcat = SubCat.objects.all()
+
+    return render(request, 'front/contact.html', {'site': render_header_footer(), 'news': news, 'cat': cat,
+                                                  'subcat': subcat})
+

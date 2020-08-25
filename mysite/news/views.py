@@ -15,11 +15,14 @@ def news_detail(request, word):
         return redirect('my_login')
 
     site = Main.objects.get(pk=2)
-    news = News.objects.filter(name=word)
+    news = News.objects.all().order_by('-pk')
     cat = Cat.objects.all()
     subcat = SubCat.objects.all()
     lastnews = News.objects.all().order_by('-pk')[:3]
-    return render(request, 'front/news_detail.html', {'news': news, 'cat': cat, 'subcat': subcat, 'lastnews': lastnews})
+
+    shownews = News.objects.filter(name=word)
+    return render(request, 'front/news_detail.html', {'news': news, 'cat': cat, 'subcat': subcat, 'lastnews': lastnews,
+                                                      'shownews': shownews})
 
 
 def news_list(request):
