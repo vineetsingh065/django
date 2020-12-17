@@ -1,2 +1,2 @@
 # django
-Simple Django based News Application created when learning basics of Django .
+Simple Django based News Application created as initial project based on Django .
